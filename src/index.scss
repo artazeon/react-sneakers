@@ -35,98 +35,97 @@ body {
   border-radius: 20px;
 }
 
-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 40px;
   border-bottom: 1px solid #eaeaea;
 
-  .headerLeft {
+  &__left {
     display: flex;
     align-items: center;
-
-    img {
-      margin-right: 15px;
-    }
-
-    p {
-      margin: 0;
-    }
-
-    h3 {
-      text-transform: uppercase;
-      margin: 0;
-    }
-    &-tagline {
-      opacity: 0.5;
-    }
   }
 
-  .headerRight {
+  &__logo {
+    margin-right: 15px;
+  }
+
+  &__store-name {
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__tagline {
+    opacity: 0.5;
+    margin: 0;
+  }
+
+  &__right {
     display: flex;
+  }
 
-    li {
-      margin-right: 30px;
-    }
+  &__right-menu {
+    margin-right: 30px;
+  }
 
-    img {
-      margin-right: 5px;
-    }
+  &__right-menu-img {
+    margin-right: 5px;
   }
 }
 
 .content {
   padding: 40px;
-  .title {
+
+  &__title {
     margin: 0;
     margin-bottom: 40px;
   }
-}
 
-.card {
-  width: 220px;
-  border: 1px solid #f3f3f3;
-  padding: 30px;
-  border-radius: 40px;
-  margin-right: 30px;
+  &__sneakers {
+    display: flex;
+  }
 
-  &Bottom {
+  &__card {
+    width: 220px;
+    border: 1px solid #f3f3f3;
+    padding: 30px;
+    border-radius: 40px;
+    margin-right: 30px;
+  }
+
+  &__card-name {
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  &__card-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  &Price {
+  &__card-price {
     display: flex;
     flex-direction: column;
-
-    span {
-      opacity: 0.5;
-      text-transform: uppercase;
-    }
-
-    b {
-      font-size: 13px;
-    }
   }
 
-  h5 {
-    font-weight: 400;
-    font-size: 14px;
+  &__card-price-label {
+    opacity: 0.5;
+    text-transform: uppercase;
   }
-}
 
-.button {
-  background: #ffffff;
-  border: 1px solid #f2f2f2;
-  border-radius: 8px;
-  box-sizing: border-box;
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
-}
+  &__card-price-value {
+    font-size: 13px;
+  }
 
-.sneakers {
-  display: flex;
+  &__card-button {
+    background: #ffffff;
+    border: 1px solid #f2f2f2;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+  }
 }
