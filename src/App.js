@@ -1,6 +1,94 @@
 function App() {
   return (
     <div className="wrapper clear">
+      <div className="ovewlay">
+        <div className="drawer">
+          <h2 className="drawer__title">
+            Корзина
+            <img
+              className="drawer__cart-item-remove"
+              src="/img/btn-remove.svg"
+              alt="Remove"
+            />
+          </h2>
+          <div className="drawer__items">
+            <div className="drawer__cart-item">
+              <div
+                className="drawer__cart-item-img"
+                style={{ backgroundImage: "url('/img/sneakers/1.jpg')" }}
+              ></div>
+              <div className="drawer__cart-item-descr">
+                <p className="drawer__cart-item-name">
+                  Мужские Кроссовки Nike Blazer Mid Suede
+                </p>
+                <b className="drawer__cart-item-price">12 999 руб.</b>
+              </div>
+              <img
+                className="drawer__cart-item-remove"
+                src="/img/btn-remove.svg"
+                alt="Remove"
+              />
+            </div>
+            <div className="drawer__cart-item">
+              <div
+                className="drawer__cart-item-img"
+                style={{ backgroundImage: "url('/img/sneakers/1.jpg')" }}
+              ></div>
+              <div className="drawer__cart-item-descr">
+                <p className="drawer__cart-item-name">
+                  Мужские Кроссовки Nike Blazer Mid Suede
+                </p>
+                <b className="drawer__cart-item-price">12 999 руб.</b>
+              </div>
+              <img
+                className="drawer__cart-item-remove"
+                src="/img/btn-remove.svg"
+                alt="Remove"
+              />
+            </div>
+            <div className="drawer__cart-item">
+              <div
+                className="drawer__cart-item-img"
+                style={{ backgroundImage: "url('/img/sneakers/1.jpg')" }}
+              ></div>
+              <div className="drawer__cart-item-descr">
+                <p className="drawer__cart-item-name">
+                  Мужские Кроссовки Nike Blazer Mid Suede
+                </p>
+                <b className="drawer__cart-item-price">12 999 руб.</b>
+              </div>
+              <img
+                className="drawer__cart-item-remove"
+                src="/img/btn-remove.svg"
+                alt="Remove"
+              />
+            </div>
+          </div>
+          <div className="drawer__total">
+            <ul className="drawer__total-items">
+              <li className="drawer__total-item">
+                <span className="drawer__total-label">Итого:</span>
+                <div className="drawer__total-line"></div>
+                <b className="drawer__total-sum">21 498 руб.</b>
+              </li>
+              <li className="drawer__total-item">
+                <span className="drawer__total-label">Налог 5%:</span>
+                <div className="drawer__total-line"></div>
+                <b className="drawer__total-sum">1 074 руб.</b>
+              </li>
+            </ul>
+            <button className="green-button">
+              Оформить заказ
+              <img
+                className="green-button__arrow"
+                src="/img/arrow.svg"
+                alt="Arrow"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+
       <header className="header">
         <div className="header__left">
           <img className="header__logo" src="/img/logo.png" alt="" />
@@ -44,10 +132,27 @@ function App() {
       </header>
 
       <div className="content">
-        <h1 className="content__title">Все кросовки</h1>
+        <div className="content__head">
+          <h1 className="content__title">Все кросовки</h1>
+          <div className="content__search">
+            <img
+              className="content__search-img"
+              src="img/search.svg"
+              alt="Search"
+            ></img>
+            <input
+              className="content__search-input"
+              placeholder="Поиск..."
+              type="text"
+            />
+          </div>
+        </div>
 
         <div className="content__sneakers">
           <div className="content__card">
+            <div className="content__favorite">
+              <img src="/img/heart-unliked.svg" alt="Unliked" />
+            </div>
             <img
               width={133}
               height={120}
@@ -79,7 +184,7 @@ function App() {
             <img
               width={133}
               height={120}
-              src="/img/sneakers/1.jpg"
+              src="/img/sneakers/2.jpg"
               alt="Sneakers"
               className="content__card-img"
             />
@@ -107,7 +212,7 @@ function App() {
             <img
               width={133}
               height={120}
-              src="/img/sneakers/1.jpg"
+              src="/img/sneakers/3.jpg"
               alt="Sneakers"
               className="content__card-img"
             />
@@ -135,7 +240,7 @@ function App() {
             <img
               width={133}
               height={120}
-              src="/img/sneakers/1.jpg"
+              src="/img/sneakers/4.jpg"
               alt="Sneakers"
               className="content__card-img"
             />
