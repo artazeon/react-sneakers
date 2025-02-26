@@ -107,6 +107,7 @@ body {
 
   &__sneakers {
     display: flex;
+    flex-wrap: wrap;
   }
 
   &__card {
@@ -123,7 +124,7 @@ body {
     }
   }
 
-  &__favorite {
+  &__card-favorite {
     position: absolute;
     cursor: pointer;
   }
