@@ -1,5 +1,6 @@
-export const Drawer = () => (
-  <div style={{ display: 'none' }} className="ovewlay">
+export const Drawer = ({ onClose }) => (
+  // <div style={{ display: 'none' }} className="ovewlay">
+  <div style={{}} className="ovewlay">
     <div className="drawer">
       <h2 className="drawer__title">
         Корзина
@@ -7,6 +8,7 @@ export const Drawer = () => (
           className="drawer__cart-item-remove"
           src="/img/btn-remove.svg"
           alt="Remove"
+          onClick={onClose}
         />
       </h2>
       <div className="drawer__items">

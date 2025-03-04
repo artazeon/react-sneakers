@@ -1,4 +1,4 @@
-export const Header = () => (
+export const Header = ({ onClickCart }) => (
   <header className="header">
     <div className="header__left">
       <img className="header__logo" src="/img/logo.png" alt="" />
@@ -8,7 +8,7 @@ export const Header = () => (
       </div>
     </div>
     <ul className="header__right">
-      <li className="header__right-menu">
+      <li className="header__right-menu" onClick={onClickCart}>
         <img
           className="header__right-menu-img"
           width={18}
