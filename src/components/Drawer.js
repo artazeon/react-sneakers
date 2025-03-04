@@ -1,5 +1,4 @@
-export const Drawer = ({ onClose }) => (
-  // <div style={{ display: 'none' }} className="ovewlay">
+export const Drawer = ({ onClose, items = [] }) => (
   <div style={{}} className="ovewlay">
     <div className="drawer">
       <h2 className="drawer__title">
@@ -12,57 +11,23 @@ export const Drawer = ({ onClose }) => (
         />
       </h2>
       <div className="drawer__items">
-        <div className="drawer__cart-item">
-          <div
-            className="drawer__cart-item-img"
-            style={{ backgroundImage: "url('/img/sneakers/1.jpg')" }}
-          ></div>
-          <div className="drawer__cart-item-descr">
-            <p className="drawer__cart-item-name">
-              Мужские Кроссовки Nike Blazer Mid Suede
-            </p>
-            <b className="drawer__cart-item-price">12 999 руб.</b>
+        {items.map((obj) => (
+          <div className="drawer__cart-item">
+            <div
+              className="drawer__cart-item-img"
+              style={{ backgroundImage: `url(${obj.imageUrl})` }}
+            ></div>
+            <div className="drawer__cart-item-descr">
+              <p className="drawer__cart-item-name">{obj.name}</p>
+              <b className="drawer__cart-item-price">{obj.price}</b>
+            </div>
+            <img
+              className="drawer__cart-item-remove"
+              src="/img/btn-remove.svg"
+              alt="Remove"
+            />
           </div>
-          <img
-            className="drawer__cart-item-remove"
-            src="/img/btn-remove.svg"
-            alt="Remove"
-          />
-        </div>
-        <div className="drawer__cart-item">
-          <div
-            className="drawer__cart-item-img"
-            style={{ backgroundImage: "url('/img/sneakers/1.jpg')" }}
-          ></div>
-          <div className="drawer__cart-item-descr">
-            <p className="drawer__cart-item-name">
-              Мужские Кроссовки Nike Blazer Mid Suede
-            </p>
-            <b className="drawer__cart-item-price">12 999 руб.</b>
-          </div>
-          <img
-            className="drawer__cart-item-remove"
-            src="/img/btn-remove.svg"
-            alt="Remove"
-          />
-        </div>
-        <div className="drawer__cart-item">
-          <div
-            className="drawer__cart-item-img"
-            style={{ backgroundImage: "url('/img/sneakers/1.jpg')" }}
-          ></div>
-          <div className="drawer__cart-item-descr">
-            <p className="drawer__cart-item-name">
-              Мужские Кроссовки Nike Blazer Mid Suede
-            </p>
-            <b className="drawer__cart-item-price">12 999 руб.</b>
-          </div>
-          <img
-            className="drawer__cart-item-remove"
-            src="/img/btn-remove.svg"
-            alt="Remove"
-          />
-        </div>
+        ))}
       </div>
       <div className="drawer__total">
         <ul className="drawer__total-items">

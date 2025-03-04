@@ -5,11 +5,12 @@ import { Drawer } from './components/Drawer'
 
 function App() {
   const [items, setItems] = React.useState([])
+  const [cartItems, setCartItems] = React.useState([])
   const [cartOpened, setCartOpened] = React.useState(false)
 
   React.useEffect(() => {
     fetch('https://67a3aab031d0d3a6b7844d8f.mockapi.io/items')
-      //fetch('/data.json')
+      //fetch('/data.json') // при недоступном mockapi.io
       .then((res) => {
         return res.json()
       })
@@ -18,9 +19,25 @@ function App() {
       })
   }, [])
 
+  const onAddToCart = (obj) => {
+    const isItemAddedToCart = cartItems.some((el) => el.name === obj.name)
+
+    if (!isItemAddedToCart) {
+      setCartItems((prevСartItems) => [...prevСartItems, obj])
+    }
+    if (isItemAddedToCart) {
+      setCartItems((prevСartItems) => {
+        const deletedItem = prevСartItems.filter((el) => el.name !== obj.name)
+        return deletedItem
+      })
+    }
+  }
+
   return (
     <div className="wrapper clear">
-      {cartOpened && <Drawer onClose={() => setCartOpened(false)} />}
+      {cartOpened && (
+        <Drawer onClose={() => setCartOpened(false)} items={cartItems} />
+      )}
 
       <Header onClickCart={() => setCartOpened(true)} />
       <div className="content">
@@ -40,14 +57,16 @@ function App() {
           </div>
         </div>
         <div className="content__sneakers">
-          {items.map((obj, ind) => (
+          {items.map((item, ind) => (
             <Card
               key={ind}
-              name={obj.name}
-              price={obj.price}
-              imageUrl={obj.imageUrl}
+              name={item.name}
+              price={item.price}
+              imageUrl={item.imageUrl}
               onFavorite={() => console.log('Добавили в закладки')}
-              onPlus={() => console.log('Добавили в корзину')}
+              onPlus={(obj) => {
+                onAddToCart(obj)
+              }}
             />
           ))}
         </div>
