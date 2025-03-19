@@ -1,17 +1,35 @@
 import React from 'react'
 
-export const Card = ({ name, price, imageUrl, onPlus, onFavorite }) => {
+export const Card = ({
+  id,
+  name,
+  price,
+  imageUrl,
+  onPlus,
+  onFavorite,
+  favorited = false,
+}) => {
   const [isAdded, setIsAdded] = React.useState(false)
+  const [isFavorite, setIsFavorite] = React.useState(favorited)
 
   const onClickPlus = () => {
     onPlus({ name, price, imageUrl })
     setIsAdded(!isAdded)
   }
 
+  const onClickFavorite = () => {
+    onFavorite({ id, name, price, imageUrl })
+    setIsFavorite(!isFavorite)
+  }
+
   return (
     <div className="content__card">
       <div className="content__card-favorite">
-        <img src="/img/heart-unliked.svg" alt="Unliked" onClick={onFavorite} />
+        <img
+          src={isFavorite ? '/img/heart-liked.svg' : '/img/heart-unliked.svg'}
+          alt="Unliked"
+          onClick={onClickFavorite}
+        />
       </div>
       <img
         width={133}
