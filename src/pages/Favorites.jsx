@@ -8,11 +8,11 @@ export const Favorites = ({ items, onAddToFavorite }) => {
       <div className="content__sneakers">
         {items.map((item, ind) => (
           <Card
+            key={`${item.name}-${ind}`}
             id={item.id}
             name={item.name}
             price={item.price}
             imageUrl={item.imageUrl}
-            key={`${item.name}-${ind}`}
             favorited={true}
             onFavorite={onAddToFavorite}
           />

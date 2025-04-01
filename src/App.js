@@ -5,6 +5,7 @@ import { Header } from './components/Header/Header'
 import { Drawer } from './components/Drawer/Drawer'
 import { Home } from './pages/Home'
 import { Favorites } from './pages/Favorites'
+
 function App() {
   const [items, setItems] = React.useState([])
   const [cartItems, setCartItems] = React.useState([])
@@ -19,7 +20,6 @@ function App() {
       .then((res) => {
         setItems(res.data)
       })
-
     axios
       .get('https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart')
       .then((res) => {
@@ -33,11 +33,16 @@ function App() {
   }, [])
 
   const onAddToCart = (obj) => {
-    axios
-      .post('https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart', obj)
-      .then((res) =>
-        setCartItems((prevСartItems) => [...prevСartItems, res.data])
+    console.log(obj)
+    if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
+      axios.delete(`https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart/${obj.id}`)
+      setCartItems((prevСartItems) =>
+        prevСartItems.filter((item) => Number(item.id) !== Number(obj.id))
       )
+    } else {
+      axios.post('https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart', obj)
+      setCartItems((prevСartItems) => [...prevСartItems, obj])
+    }
   }
 
   const onRemoveItem = (id) => {
@@ -46,8 +51,9 @@ function App() {
   }
 
   const onAddToFavorite = async (obj) => {
+    // console.log(obj)
     try {
-      if (favorites.find((el) => el.id === obj.id)) {
+      if (favorites.find((favObj) => favObj.id === obj.id)) {
         axios.delete(
           `https://67c9b9a6102d684575c34ce8.mockapi.io/favorites/${obj.id}`
         )
@@ -85,6 +91,7 @@ function App() {
           element={
             <Home
               items={items}
+              cartItems={cartItems}
               searchValue={searchValue}
               setSearchValue={setSearchValue}
               onChangeSearch={onChangeSearch}
@@ -94,9 +101,8 @@ function App() {
           }
           exact
         />
-      </Routes>
+        <Route path="/test" element={<h1>Это тестовая информация</h1>} />
 
-      <Routes>
         <Route
           path="/favorites"
           element={

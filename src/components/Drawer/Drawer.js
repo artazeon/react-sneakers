@@ -28,9 +28,7 @@ export const Drawer = ({ onClose, onRemoveItem, items = [] }) => (
                   className="drawer__cart-item-remove"
                   src="/img/btn-remove.svg"
                   alt="Remove"
-                  onClick={() => {
-                    onRemoveItem(obj.id)
-                  }}
+                  onClick={() => onRemoveItem(obj.id)}
                 />
               </div>
             ))}

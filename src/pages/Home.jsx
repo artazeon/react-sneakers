@@ -47,16 +47,16 @@ export const Home = ({
           .map((item, ind) => (
             <Card
               key={`${item.name}-${ind}`}
-              id={item.id}
-              name={item.name}
-              price={item.price}
-              imageUrl={item.imageUrl}
               onFavorite={(obj) => {
                 onAddToFavorite(obj)
               }}
               onPlus={(obj) => {
                 onAddToCart(obj)
               }}
+              id={item.id}
+              name={item.name}
+              price={item.price}
+              imageUrl={item.imageUrl}
             />
           ))}
       </div>

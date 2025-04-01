@@ -13,7 +13,7 @@ export const Card = ({
   const [isFavorite, setIsFavorite] = React.useState(favorited)
 
   const onClickPlus = () => {
-    onPlus({ name, price, imageUrl })
+    onPlus({ id, name, price, imageUrl })
     setIsAdded(!isAdded)
   }
 
