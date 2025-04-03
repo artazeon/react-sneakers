@@ -2,6 +2,7 @@ import { Card } from '../components/Card/Card'
 
 export const Home = ({
   items,
+  cartItems,
   searchValue,
   setSearchValue,
   onChangeSearch,
@@ -53,6 +54,9 @@ export const Home = ({
               onPlus={(obj) => {
                 onAddToCart(obj)
               }}
+              added={cartItems.some(
+                (obj) => Number(obj.id) === Number(item.id)
+              )}
               id={item.id}
               name={item.name}
               price={item.price}

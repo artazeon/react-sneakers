@@ -15,21 +15,22 @@ function App() {
 
   //Список товаров для mockapi.io в /public/data.json
   React.useEffect(() => {
-    axios
-      .get('https://67a3aab031d0d3a6b7844d8f.mockapi.io/items')
-      .then((res) => {
-        setItems(res.data)
-      })
-    axios
-      .get('https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart')
-      .then((res) => {
-        setCartItems(res.data)
-      })
-    axios
-      .get('https://67c9b9a6102d684575c34ce8.mockapi.io/favorites')
-      .then((res) => {
-        setFavorites(res.data)
-      })
+    async function fetchData() {
+      const cartResponse = await axios.get(
+        'https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart'
+      )
+      const favoritesResponse = await axios.get(
+        'https://67c9b9a6102d684575c34ce8.mockapi.io/favorites'
+      )
+      const itemsResponse = await axios.get(
+        'https://67a3aab031d0d3a6b7844d8f.mockapi.io/items'
+      )
+      setCartItems(cartResponse.data)
+      setFavorites(favoritesResponse.data)
+      setItems(itemsResponse.data)
+    }
+
+    fetchData()
   }, [])
 
   const onAddToCart = (obj) => {
