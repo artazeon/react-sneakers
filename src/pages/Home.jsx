@@ -8,7 +8,27 @@ export const Home = ({
   onChangeSearch,
   onAddToFavorite,
   onAddToCart,
+  isLoading,
 }) => {
+  const renderItems = () => {
+    const filteredItems = items.filter((item) =>
+      item.name.toLowerCase().includes(searchValue.toLowerCase())
+    )
+    return (isLoading ? [...Array(12)] : filteredItems).map((item, ind) => (
+      <Card
+        key={ind}
+        onFavorite={(obj) => {
+          onAddToFavorite(obj)
+        }}
+        onPlus={(obj) => {
+          onAddToCart(obj)
+        }}
+        added={cartItems.some((obj) => Number(obj.id) === Number(item.id))}
+        loading={isLoading}
+        {...item}
+      />
+    ))
+  }
   return (
     <div className="content">
       <div className="content__head">
@@ -40,30 +60,7 @@ export const Home = ({
           />
         </div>
       </div>
-      <div className="content__sneakers">
-        {items
-          .filter((item) =>
-            item.name.toLowerCase().includes(searchValue.toLowerCase())
-          )
-          .map((item, ind) => (
-            <Card
-              key={`${item.name}-${ind}`}
-              onFavorite={(obj) => {
-                onAddToFavorite(obj)
-              }}
-              onPlus={(obj) => {
-                onAddToCart(obj)
-              }}
-              added={cartItems.some(
-                (obj) => Number(obj.id) === Number(item.id)
-              )}
-              id={item.id}
-              name={item.name}
-              price={item.price}
-              imageUrl={item.imageUrl}
-            />
-          ))}
-      </div>
+      <div className="content__sneakers">{renderItems()}</div>
     </div>
   )
 }

@@ -12,6 +12,7 @@ function App() {
   const [favorites, setFavorites] = React.useState([])
   const [searchValue, setSearchValue] = React.useState('')
   const [cartOpened, setCartOpened] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(true)
 
   //Список товаров для mockapi.io в /public/data.json
   React.useEffect(() => {
@@ -25,6 +26,9 @@ function App() {
       const itemsResponse = await axios.get(
         'https://67a3aab031d0d3a6b7844d8f.mockapi.io/items'
       )
+
+      setIsLoading(false)
+
       setCartItems(cartResponse.data)
       setFavorites(favoritesResponse.data)
       setItems(itemsResponse.data)
@@ -98,6 +102,7 @@ function App() {
               onChangeSearch={onChangeSearch}
               onAddToFavorite={onAddToFavorite}
               onAddToCart={onAddToCart}
+              isLoading={isLoading}
             />
           }
           exact
