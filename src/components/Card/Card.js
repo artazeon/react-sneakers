@@ -1,5 +1,6 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
+import AppContext from '../../context'
 
 export const Card = ({
   id,
@@ -9,19 +10,13 @@ export const Card = ({
   onPlus,
   onFavorite,
   favorited = false,
-  added = false,
   loading,
 }) => {
-  const [isAdded, setIsAdded] = React.useState(added)
+  const { isItemAdded } = React.useContext(AppContext)
   const [isFavorite, setIsFavorite] = React.useState(favorited)
-
-  React.useEffect(() => {
-    setIsAdded(added)
-  }, [added])
 
   const onClickPlus = () => {
     onPlus({ id, name, price, imageUrl })
-    setIsAdded(!isAdded)
   }
 
   const onClickFavorite = () => {
@@ -73,7 +68,9 @@ export const Card = ({
             </div>
 
             <img
-              src={isAdded ? '/img/btn-cheked.svg' : '/img/btn-plus.svg'}
+              src={
+                isItemAdded(id) ? '/img/btn-cheked.svg' : '/img/btn-plus.svg'
+              }
               alt="Plus"
               className="content__card-button-img"
               onClick={onClickPlus}

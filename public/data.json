@@ -57,18 +57,18 @@
     "id": 10,
     "name": "Женские Кроссовки Nike React Infinity Run",
     "price": 13200,
-    "imageUrl": "/img/sneakers/1.jpg"
+    "imageUrl": "/img/sneakers/10.jpg"
   },
   {
     "id": 11,
     "name": "Мужские Кроссовки Nike Free RN",
     "price": 14000,
-    "imageUrl": "/img/sneakers/2.jpg"
+    "imageUrl": "/img/sneakers/11.jpg"
   },
   {
     "id": 12,
     "name": "Кроссовки Nike ZoomX Vaporfly Next",
     "price": 18999,
-    "imageUrl": "/img/sneakers/3.jpg"
+    "imageUrl": "/img/sneakers/12.jpg"
   }
 ]

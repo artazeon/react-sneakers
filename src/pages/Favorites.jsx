@@ -1,12 +1,17 @@
+import React from 'react'
+import AppContext from '../context'
 import { Card } from '../components/Card/Card'
-export const Favorites = ({ items, onAddToFavorite }) => {
+
+export const Favorites = () => {
+  const { favorites, onAddToFavorite } = React.useContext(AppContext)
+
   return (
     <div className="content">
       <div className="content__head">
         <h1 className="content__title">Избранное</h1>
       </div>
       <div className="content__sneakers">
-        {items.map((item, ind) => (
+        {favorites.map((item, ind) => (
           <Card
             key={`${item.name}-${ind}`}
             id={item.id}
