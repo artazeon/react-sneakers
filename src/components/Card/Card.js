@@ -64,7 +64,7 @@ export const Card = ({
           <div className="content__card-bottom">
             <div className="content__card-price">
               <span className="content__card-price-label">Цена:</span>
-              <b className="content__card-price-value">{price} руб.</b>
+              <b className="content__card-price-value">{price} €</b>
             </div>
 
             <img

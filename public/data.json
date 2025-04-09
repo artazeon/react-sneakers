@@ -1,74 +1,74 @@
 [
   {
     "id": 1,
-    "name": "Мужские Кроссовки Nike Blazer Mid Suede",
-    "price": 12999,
+    "name": "Кроссовки Nike Blazer Mid Suede",
+    "price": 130,
     "imageUrl": "/img/sneakers/1.jpg"
   },
   {
     "id": 2,
-    "name": "Мужские Кроссовки Nike Air Max 270",
-    "price": 15600,
+    "name": "Кроссовки Nike Air Max 270",
+    "price": 156,
     "imageUrl": "/img/sneakers/2.jpg"
   },
   {
     "id": 3,
-    "name": "Мужские Кроссовки Nike Zoom Pegasus 39",
-    "price": 14299,
+    "name": "Кроссовки Nike Zoom Pegasus 39",
+    "price": 143,
     "imageUrl": "/img/sneakers/3.jpg"
   },
   {
     "id": 4,
-    "name": "Кроссовки Nike Dunk Low Retro",
-    "price": 11200,
+    "name": "Кроссовки Puma Dunk Low Retro",
+    "price": 112,
     "imageUrl": "/img/sneakers/4.jpg"
   },
   {
     "id": 5,
-    "name": "Мужские Кроссовки Nike Air Force 1 '07",
-    "price": 11800,
+    "name": "Кроссовки Nike Air Force 1 '07",
+    "price": 118,
     "imageUrl": "/img/sneakers/5.jpg"
   },
   {
     "id": 6,
-    "name": "Женские Кроссовки Nike Air Max 90",
-    "price": 12600,
+    "name": "Кроссовки Nike Air Max 90",
+    "price": 126,
     "imageUrl": "/img/sneakers/6.jpg"
   },
   {
     "id": 7,
     "name": "Кроссовки Nike SB Chron 2",
-    "price": 9800,
+    "price": 98,
     "imageUrl": "/img/sneakers/7.jpg"
   },
   {
     "id": 8,
-    "name": "Мужские Кроссовки Nike Air Huarache",
-    "price": 13499,
+    "name": "Кроссовки Nike Air Huarache",
+    "price": 135,
     "imageUrl": "/img/sneakers/8.jpg"
   },
   {
     "id": 9,
     "name": "Кроссовки Nike Court Vision Low",
-    "price": 8700,
+    "price": 87,
     "imageUrl": "/img/sneakers/9.jpg"
   },
   {
     "id": 10,
-    "name": "Женские Кроссовки Nike React Infinity Run",
-    "price": 13200,
+    "name": "Кроссовки Nike React Infinity Run",
+    "price": 132,
     "imageUrl": "/img/sneakers/10.jpg"
   },
   {
     "id": 11,
-    "name": "Мужские Кроссовки Nike Free RN",
-    "price": 14000,
+    "name": "Кроссовки New Balance ike Free RN",
+    "price": 140,
     "imageUrl": "/img/sneakers/11.jpg"
   },
   {
     "id": 12,
-    "name": "Кроссовки Nike ZoomX Vaporfly Next",
-    "price": 18999,
+    "name": "Кроссовки Puma ZoomX Vaporfly Next",
+    "price": 190,
     "imageUrl": "/img/sneakers/12.jpg"
   }
 ]
