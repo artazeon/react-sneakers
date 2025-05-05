@@ -44,14 +44,16 @@ export const Card = ({
         </ContentLoader>
       ) : (
         <>
-          <div className="content__card-favorite" onClick={onClickFavorite}>
-            <img
-              src={
-                isFavorite ? '/img/heart-liked.svg' : '/img/heart-unliked.svg'
-              }
-              alt="Unliked"
-            />
-          </div>
+          {onFavorite && (
+            <div className="content__card-favorite" onClick={onClickFavorite}>
+              <img
+                src={
+                  isFavorite ? '/img/heart-liked.svg' : '/img/heart-unliked.svg'
+                }
+                alt="Unliked"
+              />
+            </div>
+          )}
           <img
             width="100%"
             height="auto"
@@ -67,14 +69,16 @@ export const Card = ({
               <b className="content__card-price-value">{price} €</b>
             </div>
 
-            <img
-              src={
-                isItemAdded(id) ? '/img/btn-cheked.svg' : '/img/btn-plus.svg'
-              }
-              alt="Plus"
-              className="content__card-button-img"
-              onClick={onClickPlus}
-            />
+            {onPlus && (
+              <img
+                src={
+                  isItemAdded(id) ? '/img/btn-cheked.svg' : '/img/btn-plus.svg'
+                }
+                alt="Plus"
+                className="content__card-button-img"
+                onClick={onClickPlus}
+              />
+            )}
           </div>
         </>
       )}

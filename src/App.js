@@ -1,11 +1,12 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import AppContext from './context'
 import axios from 'axios'
 import { Header } from './components/Header/Header'
 import { Drawer } from './components/Drawer/Drawer'
 import { Home } from './pages/Home'
 import { Favorites } from './pages/Favorites'
-import AppContext from './context'
+import { Orders } from './pages/Orders'
 
 function App() {
   const [items, setItems] = React.useState([])
@@ -13,7 +14,7 @@ function App() {
   const [favorites, setFavorites] = React.useState([])
   const [searchValue, setSearchValue] = React.useState('')
   const [cartOpened, setCartOpened] = React.useState(false)
-  const [isLoading, setIsLoading] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(true)
 
   //Список товаров для mockapi.io в /public/data.json
   React.useEffect(() => {
@@ -29,7 +30,6 @@ function App() {
       )
 
       setIsLoading(false)
-
       setCartItems(cartResponse.data)
       setFavorites(favoritesResponse.data)
       setItems(itemsResponse.data)
@@ -92,6 +92,7 @@ function App() {
         favorites,
         isItemAdded,
         onAddToFavorite,
+        onAddToCart,
         setCartOpened,
         setCartItems,
       }}
@@ -124,9 +125,9 @@ function App() {
             }
             exact
           />
-          <Route path="/test" element={<h1>Это тестовая информация</h1>} />
 
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/orders" element={<Orders />} />
         </Routes>
       </div>
     </AppContext.Provider>

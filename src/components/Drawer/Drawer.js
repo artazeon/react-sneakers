@@ -1,12 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 import { Info } from '../Info/Info'
-import AppContext from '../../context'
+import { useCart } from '../../hooks/useCart'
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 export const Drawer = ({ onClose, onRemoveItem, items = [] }) => {
-  const { cartItems, setCartItems } = React.useContext(AppContext)
+  const { cartItems, setCartItems, totalPrice } = useCart()
   const [orderId, setOrderId] = React.useState(null)
   const [isOrderComplite, setIsOrderComplite] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
@@ -36,8 +36,8 @@ export const Drawer = ({ onClose, onRemoveItem, items = [] }) => {
   }
 
   return (
-    <div style={{}} className="ovewlay">
-      <div className="drawer">
+    <div style={{}} className="ovewlay" onClick={onClose}>
+      <div className="drawer" onClick={(e) => e.stopPropagation()}>
         <h2 className="drawer__title">
           Корзина
           <img
@@ -75,12 +75,14 @@ export const Drawer = ({ onClose, onRemoveItem, items = [] }) => {
                 <li className="drawer__total-item">
                   <span className="drawer__total-label">Итого:</span>
                   <div className="drawer__total-line"></div>
-                  <b className="drawer__total-sum">21 498 руб.</b>
+                  <b className="drawer__total-sum">{totalPrice} €</b>
                 </li>
                 <li className="drawer__total-item">
                   <span className="drawer__total-label">Налог 5%:</span>
                   <div className="drawer__total-line"></div>
-                  <b className="drawer__total-sum">1 074 руб.</b>
+                  <b className="drawer__total-sum">
+                    {Math.round(totalPrice * 0.05 * 100) / 100} €
+                  </b>
                 </li>
               </ul>
               <button
