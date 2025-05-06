@@ -3,7 +3,8 @@ import AppContext from '../context'
 import { Card } from '../components/Card/Card'
 
 export const Favorites = () => {
-  const { favorites, onAddToFavorite } = React.useContext(AppContext)
+  const { favorites, onAddToFavorite, onAddToCart } =
+    React.useContext(AppContext)
 
   return (
     <div className="content">
@@ -20,6 +21,9 @@ export const Favorites = () => {
             imageUrl={item.imageUrl}
             favorited={true}
             onFavorite={onAddToFavorite}
+            onPlus={(obj) => {
+              onAddToCart(obj)
+            }}
           />
         ))}
       </div>

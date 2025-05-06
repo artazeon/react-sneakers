@@ -19,40 +19,63 @@ function App() {
   //Список товаров для mockapi.io в /public/data.json
   React.useEffect(() => {
     async function fetchData() {
-      const cartResponse = await axios.get(
-        'https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart'
-      )
-      const favoritesResponse = await axios.get(
-        'https://67c9b9a6102d684575c34ce8.mockapi.io/favorites'
-      )
-      const itemsResponse = await axios.get(
-        'https://67a3aab031d0d3a6b7844d8f.mockapi.io/items'
-      )
+      try {
+        const [cartResponse, favoritesResponse, itemsResponse] =
+          await Promise.all([
+            axios.get('https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart'),
+            axios.get('https://67c9b9a6102d684575c34ce8.mockapi.io/favorites'),
+            axios.get('https://67a3aab031d0d3a6b7844d8f.mockapi.io/items'),
+          ])
 
-      setIsLoading(false)
-      setCartItems(cartResponse.data)
-      setFavorites(favoritesResponse.data)
-      setItems(itemsResponse.data)
+        setIsLoading(false)
+        setCartItems(cartResponse.data)
+        setFavorites(favoritesResponse.data)
+        setItems(itemsResponse.data)
+      } catch (error) {
+        console.error(error)
+        alert(
+          'Ошибка при запросе списка товаров, либо товаров в избранных, либо товаров корзины'
+        )
+      }
     }
 
     fetchData()
   }, [])
 
-  const onAddToCart = (obj) => {
-    if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
-      axios.delete(`https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart/${obj.id}`)
-      setCartItems((prevСartItems) =>
-        prevСartItems.filter((item) => Number(item.id) !== Number(obj.id))
-      )
-    } else {
-      axios.post('https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart', obj)
-      setCartItems((prevСartItems) => [...prevСartItems, obj])
+  const onAddToCart = async (obj) => {
+    try {
+      if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
+        setCartItems((prevСartItems) =>
+          prevСartItems.filter((item) => Number(item.id) !== Number(obj.id))
+        )
+        await axios.delete(
+          `https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart/${obj.id}`
+        )
+      } else {
+        setCartItems((prevСartItems) => [...prevСartItems, obj])
+        await axios.post(
+          'https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart',
+          obj
+        )
+      }
+    } catch (error) {
+      console.error(error)
+      alert('Ошибка при добавлении товара в корзину')
     }
   }
 
-  const onRemoveItem = (id) => {
-    axios.delete(`https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart/${id}`)
-    setCartItems((prevСartItems) => prevСartItems.filter((el) => el.id !== id))
+  const onRemoveItem = async (id) => {
+    try {
+      await axios.delete(
+        `https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart/${id}`
+      )
+      setCartItems((prevСartItems) =>
+        prevСartItems.filter((el) => el.id !== id)
+      )
+    } catch (error) {
+      console.error(error)
+      alert('Ошибка при удалении товара из корзины')
+    }
   }
 
   const onAddToFavorite = async (obj) => {
@@ -72,7 +95,8 @@ function App() {
         setFavorites((prevFavorites) => [...prevFavorites, data])
       }
     } catch (error) {
-      alert('Не удалось добавить в закладки')
+      alert('Ошибка при удалении товара в избранное')
+      console.error(error)
     }
   }
 
@@ -98,13 +122,12 @@ function App() {
       }}
     >
       <div className="wrapper clear">
-        {cartOpened && (
-          <Drawer
-            onClose={() => setCartOpened(false)}
-            items={cartItems}
-            onRemoveItem={onRemoveItem}
-          />
-        )}
+        <Drawer
+          onClose={() => setCartOpened(false)}
+          items={cartItems}
+          onRemoveItem={onRemoveItem}
+          opened={cartOpened}
+        />
 
         <Header onClickCart={() => setCartOpened(true)} />
 

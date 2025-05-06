@@ -5,7 +5,7 @@ import { useCart } from '../../hooks/useCart'
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
-export const Drawer = ({ onClose, onRemoveItem, items = [] }) => {
+export const Drawer = ({ onClose, onRemoveItem, items = [], opened }) => {
   const { cartItems, setCartItems, totalPrice } = useCart()
   const [orderId, setOrderId] = React.useState(null)
   const [isOrderComplite, setIsOrderComplite] = React.useState(false)
@@ -36,7 +36,11 @@ export const Drawer = ({ onClose, onRemoveItem, items = [] }) => {
   }
 
   return (
-    <div style={{}} className="ovewlay" onClick={onClose}>
+    <div
+      style={{}}
+      className={`ovewlay ${opened ? `ovewlay--visible` : ''}`}
+      onClick={onClose}
+    >
       <div className="drawer" onClick={(e) => e.stopPropagation()}>
         <h2 className="drawer__title">
           Корзина

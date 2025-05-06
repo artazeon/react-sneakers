@@ -1,11 +1,11 @@
 import React from 'react'
 
-import AppContext from '../context'
+// import AppContext from '../context'
 import { Card } from '../components/Card/Card'
 import axios from 'axios'
 
 export const Orders = () => {
-  const { onAddToFavorite, onAddToCart } = React.useContext(AppContext)
+  // const { onAddToFavorite, onAddToCart } = React.useContext(AppContext)
   const [orders, setOrders] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(true)
 
