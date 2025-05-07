@@ -177,7 +177,7 @@ body {
 }
 
 .ovewlay {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.5);
@@ -202,7 +202,7 @@ body {
 .drawer {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   width: 420px;
   height: 100%;
   right: 0;

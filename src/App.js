@@ -44,19 +44,25 @@ function App() {
 
   const onAddToCart = async (obj) => {
     try {
-      if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
+      const findItem = cartItems.find(
+        (item) => Number(item.parentId) === Number(obj.id)
+      )
+      if (findItem) {
         setCartItems((prevСartItems) =>
-          prevСartItems.filter((item) => Number(item.id) !== Number(obj.id))
+          prevСartItems.filter(
+            (item) => Number(item.parentId) !== Number(obj.id)
+          )
         )
         await axios.delete(
-          `https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart/${obj.id}`
+          `https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart/${findItem.id}`
         )
       } else {
-        setCartItems((prevСartItems) => [...prevСartItems, obj])
-        await axios.post(
+        const { data } = await axios.post(
           'https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart',
           obj
         )
+
+        setCartItems((prevСartItems) => [...prevСartItems, data])
       }
     } catch (error) {
       console.error(error)
@@ -70,7 +76,7 @@ function App() {
         `https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart/${id}`
       )
       setCartItems((prevСartItems) =>
-        prevСartItems.filter((el) => el.id !== id)
+        prevСartItems.filter((el) => Number(el.id) !== Number(id))
       )
     } catch (error) {
       console.error(error)
@@ -105,7 +111,8 @@ function App() {
   }
 
   const isItemAdded = (id) => {
-    return cartItems.some((obj) => Number(obj.id) === Number(id))
+    console.log(cartItems)
+    return cartItems.some((obj) => Number(obj.parentId) === Number(id))
   }
 
   return (
