@@ -57,12 +57,24 @@ function App() {
           `https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart/${findItem.id}`
         )
       } else {
+        setCartItems((prevСartItems) => [...prevСartItems, obj])
+
         const { data } = await axios.post(
           'https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart',
           obj
         )
 
-        setCartItems((prevСartItems) => [...prevСartItems, data])
+        setCartItems((prev) =>
+          prev.map((item) => {
+            if (item.parentId === data.parentId) {
+              return {
+                ...item,
+                id: data.id,
+              }
+            }
+            return item
+          })
+        )
       }
     } catch (error) {
       console.error(error)
