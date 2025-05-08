@@ -151,7 +151,7 @@ function App() {
 
         <Routes>
           <Route
-            path="react-sneakers"
+            path=""
             element={
               <Home
                 items={items}
