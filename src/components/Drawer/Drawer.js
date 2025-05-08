@@ -46,7 +46,7 @@ export const Drawer = ({ onClose, onRemoveItem, items = [], opened }) => {
           Корзина
           <img
             className="drawer__cart-item-remove"
-            src="/img/btn-remove.svg"
+            src="img/btn-remove.svg"
             alt="Remove"
             onClick={onClose}
           />
@@ -67,7 +67,7 @@ export const Drawer = ({ onClose, onRemoveItem, items = [], opened }) => {
                   </div>
                   <img
                     className="drawer__cart-item-remove"
-                    src="/img/btn-remove.svg"
+                    src="img/btn-remove.svg"
                     alt="Remove"
                     onClick={() => onRemoveItem(obj.id)}
                   />
@@ -97,7 +97,7 @@ export const Drawer = ({ onClose, onRemoveItem, items = [], opened }) => {
                 Оформить заказ
                 <img
                   className="green-button__arrow"
-                  src="/img/arrow.svg"
+                  src="img/arrow.svg"
                   alt="Arrow"
                 />
               </button>
@@ -112,7 +112,7 @@ export const Drawer = ({ onClose, onRemoveItem, items = [], opened }) => {
                 : 'Для оформления заказа, добавте товар в корзину'
             }
             image={
-              isOrderComplite ? '/img/comlite-order.png' : '/img/cart-empty.png'
+              isOrderComplite ? 'img/comlite-order.png' : 'img/cart-empty.png'
             }
           />
         )}

@@ -45,7 +45,7 @@ export const Home = ({
           {searchValue && (
             <img
               className="content__search-img-clear"
-              src="/img/btn-remove.svg"
+              src="img/btn-remove.svg"
               alt="Clear"
               onClick={() => setSearchValue('')}
             />

@@ -9,7 +9,7 @@ export const Header = ({ onClickCart }) => {
     <header className="header">
       <div className="header__left">
         <Link to="/" className="header__left-link">
-          <img className="header__logo" src="/img/logo.png" alt="" />
+          <img className="header__logo" src="img/logo.png" alt="" />
 
           <div className="header__text">
             <h3 className="header__store-name">React Sneakers</h3>
@@ -23,7 +23,7 @@ export const Header = ({ onClickCart }) => {
             className="header__right-menu-img"
             width={18}
             height={18}
-            src="/img/cart.svg"
+            src="img/cart.svg"
             alt=""
           />
           <span className="header__right-menu-text">{totalPrice} €</span>
@@ -34,7 +34,7 @@ export const Header = ({ onClickCart }) => {
               className="header__right-menu-img"
               width={18}
               height={18}
-              src="/img/favorites.svg"
+              src="img/favorites.svg"
               alt=""
             />
             {/* <span className="header__right-menu-text">Закладки</span> */}
@@ -46,7 +46,7 @@ export const Header = ({ onClickCart }) => {
               className="header__right-menu-img"
               width={18}
               height={18}
-              src="/img/user.svg"
+              src="img/user.svg"
               alt=""
             />
             {/* <span className="header__right-menu-text">Профиль</span> */}
