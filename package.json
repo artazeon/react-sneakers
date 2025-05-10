@@ -1,7 +1,7 @@
 {
   "name": "react-sneakers",
   "version": "0.1.0",
-  "homepage": "https://artazeon.github.io/react-sneakers",
+  "homepage": "/",
   "private": true,
   "dependencies": {
     "axios": "^1.8.1",

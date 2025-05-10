@@ -17,6 +17,7 @@ function App() {
   const [isLoading, setIsLoading] = React.useState(true)
 
   //Список товаров для mockapi.io в /public/data.json
+
   React.useEffect(() => {
     async function fetchData() {
       try {
@@ -151,7 +152,7 @@ function App() {
 
         <Routes>
           <Route
-            path=""
+            path="/"
             element={
               <Home
                 items={items}

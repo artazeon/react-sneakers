@@ -38,14 +38,14 @@ export const Home = ({
         <div className="content__search">
           <img
             className="content__search-img"
-            src="img/search.svg"
+            src={`${process.env.PUBLIC_URL}/img/search.svg`}
             alt="Search"
           ></img>
 
           {searchValue && (
             <img
               className="content__search-img-clear"
-              src="img/btn-remove.svg"
+              src={`${process.env.PUBLIC_URL}/img/btn-remove.svg`}
               alt="Clear"
               onClick={() => setSearchValue('')}
             />

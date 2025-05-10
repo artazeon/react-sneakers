@@ -8,8 +8,12 @@ export const Header = ({ onClickCart }) => {
   return (
     <header className="header">
       <div className="header__left">
-        <Link to={process.env.PUBLIC_URL + '/'} className="header__left-link">
-          <img className="header__logo" src="img/logo.png" alt="" />
+        <Link to="/" className="header__left-links">
+          <img
+            className="header__logo"
+            src={`${process.env.PUBLIC_URL}/img/logo.png`}
+            alt=""
+          />
 
           <div className="header__text">
             <h3 className="header__store-name">React Sneakers</h3>

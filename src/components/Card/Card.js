@@ -49,7 +49,9 @@ export const Card = ({
             <div className="content__card-favorite" onClick={onClickFavorite}>
               <img
                 src={
-                  isFavorite ? 'img/heart-liked.svg' : 'img/heart-unliked.svg'
+                  isFavorite
+                    ? `${process.env.PUBLIC_URL}/img/heart-liked.svg`
+                    : `${process.env.PUBLIC_URL}/img/heart-unliked.svg`
                 }
                 alt="Unliked"
               />
@@ -58,7 +60,7 @@ export const Card = ({
           <img
             width="100%"
             height="auto"
-            src={imageUrl}
+            src={`${process.env.PUBLIC_URL}/${imageUrl}`}
             alt="Sneakers"
             className="content__card-img"
           />
@@ -73,7 +75,9 @@ export const Card = ({
             {onPlus && (
               <img
                 src={
-                  isItemAdded(id) ? 'img/btn-cheked.svg' : 'img/btn-plus.svg'
+                  isItemAdded(id)
+                    ? `${process.env.PUBLIC_URL}/img/btn-cheked.svg`
+                    : `${process.env.PUBLIC_URL}/img/btn-plus.svg`
                 }
                 alt="Plus"
                 className="content__card-button-img"
