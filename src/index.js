@@ -15,6 +15,3 @@ root.render(
     </Router>
   </React.StrictMode>
 )
-console.log('NODE_ENV:', process.env.NODE_ENV)
-console.log('PUBLIC_URL:', process.env.PUBLIC_URL)
-console.log('Current path:', window.location.pathname)

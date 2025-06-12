@@ -136,6 +136,7 @@ function App() {
         isItemAdded,
         onAddToFavorite,
         onAddToCart,
+        cartOpened,
         setCartOpened,
         setCartItems,
       }}

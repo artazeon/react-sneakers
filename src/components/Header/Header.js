@@ -8,7 +8,7 @@ export const Header = ({ onClickCart }) => {
   return (
     <header className="header">
       <div className="header__left">
-        <Link to="/" className="header__left-links">
+        <Link to="/" className="header__left-link">
           <img
             className="header__logo"
             src={`${process.env.PUBLIC_URL}/img/logo.png`}
@@ -22,18 +22,8 @@ export const Header = ({ onClickCart }) => {
         </Link>
       </div>
       <ul className="header__right">
-        <li className="header__right-menu" onClick={onClickCart}>
-          <img
-            className="header__right-menu-img"
-            width={18}
-            height={18}
-            src="img/cart.svg"
-            alt=""
-          />
-          <span className="header__right-menu-text">{totalPrice} €</span>
-        </li>
         <li className="header__right-menu">
-          <Link to="favorites">
+          <Link to="favorites" className="header__right-menu-link">
             <img
               className="header__right-menu-img"
               width={18}
@@ -45,7 +35,7 @@ export const Header = ({ onClickCart }) => {
           </Link>
         </li>
         <li className="header__right-menu">
-          <Link to="orders">
+          <Link to="orders" className="header__right-menu-link">
             <img
               className="header__right-menu-img"
               width={18}
@@ -55,6 +45,16 @@ export const Header = ({ onClickCart }) => {
             />
             {/* <span className="header__right-menu-text">Профиль</span> */}
           </Link>
+        </li>
+        <li className="header__right-menu" onClick={onClickCart}>
+          <img
+            className="header__right-menu-img"
+            width={18}
+            height={18}
+            src="img/cart.svg"
+            alt=""
+          />
+          <span className="header__right-menu-text">{totalPrice} €</span>
         </li>
       </ul>
     </header>
