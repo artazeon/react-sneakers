@@ -99,12 +99,18 @@ function App() {
 
   const onAddToFavorite = async (obj) => {
     try {
-      if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
-        axios.delete(
-          `https://67c9b9a6102d684575c34ce8.mockapi.io/favorites/${obj.id}`
+      const favoriteItem = favorites.find(
+        (favObj) => Number(favObj.parentId) === Number(obj.id)
+      )
+
+      if (favoriteItem) {
+        await axios.delete(
+          `https://67c9b9a6102d684575c34ce8.mockapi.io/favorites/${favoriteItem.id}`
         )
         setFavorites((prevFavorites) =>
-          prevFavorites.filter((item) => Number(item.id) !== Number(obj.id))
+          prevFavorites.filter(
+            (item) => Number(item.id) !== Number(favoriteItem.id)
+          )
         )
       } else {
         const { data } = await axios.post(
@@ -114,7 +120,7 @@ function App() {
         setFavorites((prevFavorites) => [...prevFavorites, data])
       }
     } catch (error) {
-      alert('Ошибка при удалении товара в избранное')
+      alert('Ошибка при изменении избранного')
       console.error(error)
     }
   }
@@ -127,6 +133,10 @@ function App() {
     return cartItems.some((obj) => Number(obj.parentId) === Number(id))
   }
 
+  const isItemFavorited = (id) => {
+    return favorites.some((obj) => Number(obj.parentId) === Number(id))
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -134,6 +144,7 @@ function App() {
         cartItems,
         favorites,
         isItemAdded,
+        isItemFavorited,
         onAddToFavorite,
         onAddToCart,
         cartOpened,

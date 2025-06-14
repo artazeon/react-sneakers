@@ -46,7 +46,7 @@ export const Drawer = ({ onClose, onRemoveItem, items = [], opened }) => {
           Корзина
           <img
             className="drawer__cart-item-remove"
-            src="img/btn-remove.svg"
+            src={`${process.env.PUBLIC_URL}/img/btn-remove.svg`}
             alt="Remove"
             onClick={onClose}
           />

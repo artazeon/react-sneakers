@@ -17,7 +17,7 @@ export const Favorites = () => {
           favorites.map((item, ind) => (
             <Card
               key={`${item.name}-${ind}`}
-              id={item.id}
+              id={item.parentId}
               name={item.name}
               price={item.price}
               imageUrl={item.imageUrl}

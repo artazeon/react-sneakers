@@ -12,8 +12,8 @@ export const Card = ({
   favorited = false,
   loading,
 }) => {
-  const { isItemAdded } = React.useContext(AppContext)
-  const [isFavorite, setIsFavorite] = React.useState(favorited)
+  const { isItemAdded, isItemFavorited } = React.useContext(AppContext)
+
   const obj = { id, parentId: id, name, price, imageUrl }
 
   const onClickPlus = () => {
@@ -22,7 +22,6 @@ export const Card = ({
 
   const onClickFavorite = () => {
     onFavorite(obj)
-    setIsFavorite(!isFavorite)
   }
 
   return (
@@ -49,7 +48,7 @@ export const Card = ({
             <div className="content__card-favorite" onClick={onClickFavorite}>
               <img
                 src={
-                  isFavorite
+                  isItemFavorited(id)
                     ? `${process.env.PUBLIC_URL}/img/heart-liked.svg`
                     : `${process.env.PUBLIC_URL}/img/heart-unliked.svg`
                 }
