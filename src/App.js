@@ -7,6 +7,7 @@ import { Drawer } from './components/Drawer/Drawer'
 import { Home } from './pages/Home'
 import { Favorites } from './pages/Favorites'
 import { Orders } from './pages/Orders'
+import { Slider } from './components/Slider/Slider'
 
 function App() {
   const [items, setItems] = React.useState([])
@@ -17,7 +18,6 @@ function App() {
   const [isLoading, setIsLoading] = React.useState(true)
 
   //Список товаров для mockapi.io в /public/data.json
-
   React.useEffect(() => {
     async function fetchData() {
       try {
@@ -161,6 +161,8 @@ function App() {
         />
 
         <Header onClickCart={() => setCartOpened(true)} />
+
+        <Slider />
 
         <Routes>
           <Route
