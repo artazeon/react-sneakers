@@ -59,6 +59,8 @@ body {
   align-items: center;
   padding: 40px;
   border-bottom: 1px solid #eaeaea;
+  user-select: none;
+  outline: none;
 
   &__left {
     display: flex;
@@ -519,27 +521,32 @@ body {
 }
 
 .slide {
-  width: 960px;
-  height: 300px;
+  width: 100%;
+  max-width: 960px;
+  aspect-ratio: 32 / 10;
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
-  padding-left: 30px;
   color: white;
   border-radius: 25px;
-  margin: 45px 60px 40px 60px;
+  margin: 0 auto;
+
+  &__wrapper {
+    margin: 0 60px;
+  }
 
   &__content {
-    max-width: 240px;
+    max-width: 340px;
+    margin-left: 60px;
   }
 
   &__content-title {
     font-style: normal;
     font-weight: 700;
-    font-size: 38px;
+    font-size: 28px;
     line-height: 46px;
-    color: #000000;
+    color: #303030;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     &-green {
@@ -548,23 +555,60 @@ body {
   }
 
   &__content-button {
+    background-color: #a5d364;
+    border: 0;
+    width: 178px;
+    height: 48px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #ffffff;
   }
 }
 
-/* Стрелки */
-.swiper-button-next,
-.swiper-button-prev {
-  color: #ff6600 !important ; /* меняем цвет стрелок */
-  width: 30px !important ;
-  height: 30px !important ;
+.swiper {
+  margin-top: 45px;
 }
 
-/* Точки */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #c8c8c8 !important ;
+  width: 35px !important ;
+  height: 35px !important ;
+  user-select: none;
+  outline: none;
+  border-radius: 30px;
+  background-color: #fff !important ;
+}
+
+.swiper-button-prev {
+  left: var(--swiper-navigation-sides-offset, 40px) !important ;
+}
+
+.swiper-button-next {
+  right: var(--swiper-navigation-sides-offset, 40px) !important ;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-family: swiper-icons;
+  font-size: 10px !important;
+  text-transform: none !important;
+  letter-spacing: 0;
+  font-variant: initial;
+  line-height: 1;
+}
+
 .swiper-pagination-bullet {
-  background: #ccc !important ; /* цвет точек */
+  background: #ccc !important ;
   opacity: 1;
+  user-select: none;
+  outline: none;
 }
 
 .swiper-pagination-bullet-active {
-  background: #ff6600 !important; /* цвет активной точки */
+  background: #a5d364 !important;
+  user-select: none;
+  outline: none;
 }

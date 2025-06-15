@@ -162,22 +162,23 @@ function App() {
 
         <Header onClickCart={() => setCartOpened(true)} />
 
-        <Slider />
-
         <Routes>
           <Route
             path="/"
             element={
-              <Home
-                items={items}
-                cartItems={cartItems}
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-                onChangeSearch={onChangeSearch}
-                onAddToCart={onAddToCart}
-                isLoading={isLoading}
-                onAddToFavorite={onAddToFavorite}
-              />
+              <>
+                <Slider />
+                <Home
+                  items={items}
+                  cartItems={cartItems}
+                  searchValue={searchValue}
+                  setSearchValue={setSearchValue}
+                  onChangeSearch={onChangeSearch}
+                  onAddToCart={onAddToCart}
+                  isLoading={isLoading}
+                  onAddToFavorite={onAddToFavorite}
+                />
+              </>
             }
             exact
           />
