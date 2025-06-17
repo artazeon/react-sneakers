@@ -9,6 +9,7 @@ export const Home = ({
   onAddToFavorite,
   onAddToCart,
   isLoading,
+  targetRef,
 }) => {
   const renderItems = () => {
     const filteredItems = items.filter((item) =>
@@ -30,7 +31,7 @@ export const Home = ({
     ))
   }
   return (
-    <div className="content">
+    <div className="content" ref={targetRef}>
       <div className="content__head">
         <h1 className="content__title">
           {searchValue ? `Поиск по запросу: ${searchValue}` : 'Все кроссовки'}

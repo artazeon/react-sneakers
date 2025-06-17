@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { useRef } from 'react'
 import AppContext from './context'
 import axios from 'axios'
 import { Header } from './components/Header/Header'
@@ -17,8 +16,8 @@ function App() {
   const [searchValue, setSearchValue] = React.useState('')
   const [cartOpened, setCartOpened] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(true)
-  const targetRef = useRef(null)
-
+  const targetRef = React.useRef(null)
+  console.log(targetRef.current)
   //Список товаров для mockapi.io в /public/data.json
   React.useEffect(() => {
     async function fetchData() {
@@ -170,7 +169,7 @@ function App() {
             element={
               <>
                 <Slider scrollTargetRef={targetRef} />
-                <section ref={targetRef}>
+                <section>
                   <Home
                     items={items}
                     cartItems={cartItems}
@@ -180,6 +179,7 @@ function App() {
                     onAddToCart={onAddToCart}
                     isLoading={isLoading}
                     onAddToFavorite={onAddToFavorite}
+                    targetRef={targetRef}
                   />
                 </section>
               </>

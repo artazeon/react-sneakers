@@ -432,7 +432,7 @@ body {
   &__cart-item-remove {
     opacity: 0.5;
     cursor: pointer;
-    transition: opasity 0.2s ease-in-out;
+    transition: opaсity 0.2s ease-in-out;
 
     &:hover {
       opacity: 1;
@@ -636,9 +636,10 @@ body {
     }
 
     @media (max-width: 480px) {
-      width: 90px;
+      width: 80px;
       height: 25px;
       font-size: 10px;
+      margin-bottom: 20px;
     }
   }
 }
