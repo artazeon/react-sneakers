@@ -11,9 +11,10 @@ export const Card = ({
   onFavorite,
   favorited = false,
   loading,
+  orderDate,
 }) => {
   const { isItemAdded, isItemFavorited } = React.useContext(AppContext)
-
+  console.log(orderDate)
   const obj = { id, parentId: id, name, price, imageUrl }
 
   const onClickPlus = () => {
@@ -56,6 +57,13 @@ export const Card = ({
               />
             </div>
           )}
+          {orderDate && (
+            <>
+              <b className="content__card-order-date-info">Дата заказа:</b>
+              <p className="content__card-order-date">{orderDate}</p>
+            </>
+          )}
+
           <img
             width="100%"
             height="auto"

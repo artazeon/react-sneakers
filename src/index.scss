@@ -243,6 +243,18 @@ body {
     cursor: pointer;
   }
 
+  &__card-order-date-info {
+    display: block;
+    font-size: 13px;
+    text-align: center;
+    margin: 0 0 5px;
+  }
+  &__card-order-date {
+    font-size: 12px;
+    text-align: center;
+    margin: 0;
+  }
+
   @media (max-width: 1200px) {
     &__card {
       margin-right: 15px;

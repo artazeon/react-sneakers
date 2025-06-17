@@ -17,7 +17,7 @@ function App() {
   const [cartOpened, setCartOpened] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(true)
   const targetRef = React.useRef(null)
-  console.log(targetRef.current)
+
   //Список товаров для mockapi.io в /public/data.json
   React.useEffect(() => {
     async function fetchData() {
@@ -59,6 +59,7 @@ function App() {
           `https://67a3aab031d0d3a6b7844d8f.mockapi.io/cart/${findItem.id}`
         )
       } else {
+        obj.date = new Date().toLocaleDateString()
         setCartItems((prevСartItems) => [...prevСartItems, obj])
 
         const { data } = await axios.post(

@@ -23,8 +23,8 @@ export const Slider = ({ scrollTargetRef }) => {
       spaceBetween={30}
       slidesPerView={1}
       loop={true}
-      // autoplay={{ delay: 3000 }}
-      autoplay={false}
+      autoplay={{ delay: 3000 }}
+      // autoplay={false}
       pagination={{ clickable: true }}
       navigation={true}
     >

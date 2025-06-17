@@ -10,13 +10,18 @@ export const Drawer = ({ onClose, onRemoveItem, items = [], opened }) => {
   const [orderId, setOrderId] = React.useState(null)
   const [isOrderComplite, setIsOrderComplite] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
+  console.log(cartItems)
 
   const onClickOrder = async () => {
     try {
       setIsLoading(true)
+      const updatedItems = cartItems.map((item) => ({
+        ...item,
+        orderDate: new Date().toLocaleString('ru-RU'),
+      }))
       const { data } = await axios.post(
         'https://67c9b9a6102d684575c34ce8.mockapi.io/orders',
-        { items: cartItems }
+        { items: updatedItems }
       )
       setOrderId(data.id)
       setIsOrderComplite(true)
