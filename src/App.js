@@ -152,6 +152,7 @@ function App() {
         cartOpened,
         setCartOpened,
         setCartItems,
+        isLoading,
       }}
     >
       <div className="wrapper clear">

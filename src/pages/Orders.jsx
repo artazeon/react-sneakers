@@ -1,6 +1,4 @@
 import React from 'react'
-
-// import AppContext from '../context'
 import { Card } from '../components/Card/Card'
 import { Info } from '../components/Info/Info'
 import axios from 'axios'

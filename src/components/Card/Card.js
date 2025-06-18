@@ -14,7 +14,7 @@ export const Card = ({
   orderDate,
 }) => {
   const { isItemAdded, isItemFavorited } = React.useContext(AppContext)
-  console.log(orderDate)
+
   const obj = { id, parentId: id, name, price, imageUrl }
 
   const onClickPlus = () => {

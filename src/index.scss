@@ -32,10 +32,11 @@ body {
 
 .wrapper {
   max-width: 1080px;
-  margin: 50px auto;
   background: #ffffff;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+  margin: 50px auto;
   border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+
   @media (max-width: 1200px) {
     margin: 50px;
   }
@@ -57,8 +58,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px;
   border-bottom: 1px solid #eaeaea;
+  padding: 40px;
   user-select: none;
   outline: none;
 
@@ -92,10 +93,10 @@ body {
   }
 
   &__right-menu {
-    margin-right: 30px;
-    cursor: pointer;
     display: flex;
     align-items: center;
+    margin-right: 30px;
+    cursor: pointer;
   }
 
   &__right-menu-link {
@@ -165,11 +166,11 @@ body {
   }
 
   &__search {
+    position: relative;
     display: flex;
     border: 1px solid #f3f3f3;
     border-radius: 10px;
     padding: 0 13px;
-    position: relative;
   }
 
   &__search-img-clear {
@@ -197,8 +198,8 @@ body {
   &__card {
     width: 220px;
     border: 1px solid #f3f3f3;
-    padding: 30px;
     border-radius: 40px;
+    padding: 30px;
     margin-right: 30px;
     margin-bottom: 30px;
     transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
@@ -272,10 +273,11 @@ body {
 
   @media (max-width: 768px) {
     padding: 20px;
+
     &__card {
       width: 135px;
-      padding: 11px;
       border-radius: 30px;
+      padding: 11px;
       margin-right: 5px;
       margin-bottom: 5px;
     }
@@ -300,8 +302,8 @@ body {
     &__card {
       width: 115px;
       border: 1px solid #f3f3f3;
-      padding: 11px;
       border-radius: 20px;
+      padding: 11px;
       margin-right: 5px;
       margin-bottom: 5px;
     }
@@ -332,9 +334,9 @@ body {
 }
 
 .drawer {
+  position: fixed;
   display: flex;
   flex-direction: column;
-  position: fixed;
   width: 420px;
   height: 100%;
   right: 0;
@@ -357,10 +359,10 @@ body {
 
   &__cart-empty {
     display: flex;
+    flex: 1;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    flex: 1;
     text-align: center;
 
     .green-button {
@@ -623,7 +625,7 @@ body {
   }
 
   &__content-button {
-    background-color: #a5d364;
+    background-color: #9dd558;
     border: 0;
     width: 178px;
     height: 48px;
@@ -633,6 +635,11 @@ body {
     text-transform: uppercase;
     color: #ffffff;
     cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: lighten($color: #9dd558, $amount: 5%);
+    }
 
     @media (max-width: 1200px) {
       width: 150px;
@@ -673,13 +680,13 @@ body {
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: #c8c8c8 !important ;
   width: 35px !important ;
   height: 35px !important ;
-  user-select: none;
-  outline: none;
   border-radius: 30px;
   background-color: #fff !important ;
+  color: #c8c8c8 !important ;
+  user-select: none;
+  outline: none;
 
   @media (max-width: 768px) {
     width: 35px !important ;

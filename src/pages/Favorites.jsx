@@ -4,7 +4,7 @@ import { Card } from '../components/Card/Card'
 import { Info } from '../components/Info/Info'
 
 export const Favorites = () => {
-  const { favorites, onAddToFavorite, onAddToCart } =
+  const { favorites, onAddToFavorite, onAddToCart, isLoading } =
     React.useContext(AppContext)
 
   return (
@@ -13,7 +13,11 @@ export const Favorites = () => {
         <h1 className="content__title">Избранное</h1>
       </div>
       <div className="content__sneakers">
-        {favorites.length ? (
+        {isLoading ? (
+          [...Array(12)].map((item, ind) => (
+            <Card key={ind} loading={isLoading} {...item} />
+          ))
+        ) : favorites.length ? (
           favorites.map((item, ind) => (
             <Card
               key={`${item.name}-${ind}`}

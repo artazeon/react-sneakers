@@ -10,7 +10,6 @@ export const Drawer = ({ onClose, onRemoveItem, items = [], opened }) => {
   const [orderId, setOrderId] = React.useState(null)
   const [isOrderComplite, setIsOrderComplite] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
-  console.log(cartItems)
 
   const onClickOrder = async () => {
     try {
